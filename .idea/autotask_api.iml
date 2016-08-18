@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$" />
+    <orderEntry type="jdk" jdkName="Remote-rvm:ruby-2.3.1-p112 (2)" jdkType="RUBY_SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" scope="PROVIDED" name="akami (v1.3.1, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="builder (v3.2.2, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="bundler (v1.12.5, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gyoku (v1.3.1, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="httpi (v2.4.2, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="mini_portile2 (v2.1.0, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nokogiri (v1.6.8, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="nori (v2.6.0, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="pkg-config (v1.1.7, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="rack (v2.0.1, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="savon (v2.11.1, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="socksify (v1.7.0, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="wasabi (v3.5.0, Remote-rvm:ruby-2.3.1-p112 (2)) [gem]" level="application" />
+  </component>
+</module>
