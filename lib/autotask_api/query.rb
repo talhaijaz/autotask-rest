@@ -14,7 +14,7 @@ module AutotaskApi
 
       result = response.body[:query_response][:query_result]
 
-      if result[:return_code] == -1
+      if result[:return_code].to_i == -1
         raise result[:errors]
       else
         return result
