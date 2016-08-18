@@ -12,7 +12,13 @@ module AutotaskApi
     def fetch
       response = client.call :query, query_string
 
-      return response.body[:query_response][:query_result]
+      result = response.body[:query_response][:query_result]
+
+      if result[:return_code] == -1
+        raise result[:errors]
+      else
+        return result
+      end
     end
 
     def add_condition(field, op, expression)
