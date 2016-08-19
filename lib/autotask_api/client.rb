@@ -7,7 +7,7 @@ module AutotaskApi
 
     def initialize
       @config = AutotaskApi.config
-      yield @config
+      yield @config if block_given?
     end
 
     def savon_client
