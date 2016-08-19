@@ -3,9 +3,9 @@ module AutotaskApi
     Condition = Struct.new(:field, :op, :expression)
     attr_accessor :entity, :client, :conditions
 
-    def initialize(entity)
+    def initialize(entity, client = nil)
       @entity = entity
-      @client = Client.new
+      @client = client || Client.new
       @conditions = []
     end
 

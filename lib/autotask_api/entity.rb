@@ -2,8 +2,8 @@ module AutotaskApi
   class Entity
 
     # @param conditions [Hash]
-    def self.where(conditions)
-      query = Query.new(self::NAME)
+    def self.where(conditions, client = Client.new)
+      query = Query.new(self::NAME, client)
 
       conditions.each do |k, v|
         query.add_condition(k.to_s.camelize, 'equals', expression(v))

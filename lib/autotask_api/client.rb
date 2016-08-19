@@ -3,13 +3,20 @@ module AutotaskApi
 
     NAMESPACE = 'http://autotask.net/ATWS/v1_5/'
 
+    attr_reader :config
+
+    def initialize
+      @config = AutotaskApi.config
+      yield @config
+    end
+
     def savon_client
       @savon_client ||= Savon.client(
-          wsdl: AutotaskApi.config.wsdl,
+          wsdl: config.wsdl,
           logger: Rails.logger,
           log_level: :debug,
-          log: AutotaskApi.config.debug,
-          basic_auth: [AutotaskApi.config.username, AutotaskApi.config.password]
+          log: config.debug,
+          basic_auth: [config.username, config.password]
       )
     end
 
