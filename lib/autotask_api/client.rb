@@ -5,6 +5,14 @@ module AutotaskApi
 
     attr_reader :config
 
+    class << self
+      attr_accessor :client
+    end
+
+    def self.client
+      @client ||= Client.new
+    end
+
     def initialize
       @config = AutotaskApi.config
       yield @config if block_given?

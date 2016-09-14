@@ -2,7 +2,7 @@ module AutotaskApi
   class Entity
 
     # @param conditions [Hash]
-    def self.where(conditions, client = Client.new)
+    def self.where(conditions, client = AutotaskApi.client)
       query = Query.new(self::NAME, client)
 
       conditions.each do |k, v|
