@@ -1,17 +1,18 @@
 module AutotaskApi
+
+  class << self
+    attr_accessor :client
+  end
+
+  def self.client
+    @client ||= Client.new
+  end
+
   class Client
 
     NAMESPACE = 'http://autotask.net/ATWS/v1_5/'
 
     attr_reader :config
-
-    class << self
-      attr_accessor :client
-    end
-
-    def self.client
-      @client ||= Client.new
-    end
 
     def initialize
       @config = AutotaskApi.config

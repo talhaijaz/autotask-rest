@@ -1,12 +1,11 @@
 module AutotaskApi
   class Query
-    Condition = Struct.new(:field, :op, :expression)
-    attr_accessor :entity, :client, :conditions
+    attr_accessor :entity, :client, :condition
 
-    def initialize(entity, client = AutotaskApi.client)
+    def initialize(entity, condition = nil, client = AutotaskApi.client)
       @entity = entity
       @client = client
-      @conditions = []
+      @condition = condition
     end
 
     def fetch
@@ -21,10 +20,6 @@ module AutotaskApi
       end
     end
 
-    def add_condition(field, op, expression)
-      self.conditions << Condition.new(field, op, expression)
-    end
-
     def query_string
       Nokogiri::XML::Builder.new do
         sXML do
@@ -32,14 +27,7 @@ module AutotaskApi
             xml.queryxml do
               xml.entity entity
               xml.query do
-                conditions.each do |condition|
-                  xml.condition do
-                    xml.field condition.field do
-                      xml.expression condition.expression,
-                                     op: condition.op
-                    end
-                  end
-                end
+                condition.to_xml(xml)
               end
             end
           end.doc.root)
@@ -48,4 +36,40 @@ module AutotaskApi
     end
 
   end
+
+  class Condition
+
+    attr_reader :expressions, :operator
+
+    def initialize(expressions, operator = 'AND')
+      @expressions = expressions.is_a?(Array) ? expressions : [expressions]
+      @operator = operator
+    end
+
+    def to_xml(xml)
+      xml.condition operator: operator do
+        expressions.each { |expression| expression.to_xml(xml) }
+      end
+    end
+
+  end
+
+  class Expression
+
+    attr_reader :field, :operator, :value
+
+    def initialize(field, operator, value)
+      @field = field
+      @operator = operator
+      @value = value
+    end
+
+    def to_xml(xml)
+      xml.field field do
+        xml.expression value, op: operator
+      end
+    end
+
+  end
+
 end
