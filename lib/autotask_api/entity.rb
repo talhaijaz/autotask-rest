@@ -8,7 +8,12 @@ module AutotaskApi
     # @param conditions [Hash]
     def self.where(condition, client = AutotaskApi.client)
       query = Query.new(self::NAME, condition, client)
-      clean_results query.fetch[:entity_results][:entity]
+      response = query.fetch
+
+      return [] if response[:entity_results].nil?
+      results = clean_results response[:entity_results][:entity]
+
+      results.is_a?(Array) ? results : [results]
     end
 
     def self.expression(value)
@@ -31,18 +36,18 @@ module AutotaskApi
   end
 
   class Account < Entity
-    NAME = 'Account'
+    NAME = 'account'
   end
 
   class Contact < Entity
-    NAME = 'Contact'
+    NAME = 'contact'
   end
 
   class Contract < Entity
-    NAME = 'Contract'
+    NAME = 'contract'
   end
 
   class Resource < Entity
-    NAME = 'Resource'
+    NAME = 'resource'
   end
 end
