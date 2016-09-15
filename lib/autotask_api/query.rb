@@ -52,6 +52,14 @@ module AutotaskApi
       end
     end
 
+    def self.from_hash(condition = {})
+      expressions = condition[:expressions].map do |expression|
+        expression.has_key?(:expressions) ? Condition.from_hash(expression) : Expression.from_hash(expression)
+      end
+
+      new expressions, condition[:operator] || 'AND'
+    end
+
   end
 
   class Expression
@@ -68,6 +76,10 @@ module AutotaskApi
       xml.field field do
         xml.expression value, op: operator
       end
+    end
+
+    def self.from_hash(expression = {})
+      new(expression[:field], expression[:operator], expression[:value])
     end
 
   end
