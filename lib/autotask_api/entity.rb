@@ -50,4 +50,8 @@ module AutotaskApi
   class Resource < Entity
     NAME = 'resource'
   end
+
+  class AllocationCode < Entity
+    NAME = 'allocation_code'
+  end
 end
