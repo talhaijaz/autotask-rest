@@ -39,6 +39,10 @@ module AutotaskApi
     NAME = 'account'
   end
 
+  class AllocationCode < Entity
+    NAME = 'allocation_code'
+  end
+
   class Contact < Entity
     NAME = 'contact'
   end
@@ -49,9 +53,5 @@ module AutotaskApi
 
   class Resource < Entity
     NAME = 'resource'
-  end
-
-  class AllocationCode < Entity
-    NAME = 'allocation_code'
   end
 end
