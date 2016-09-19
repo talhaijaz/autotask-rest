@@ -51,6 +51,10 @@ module AutotaskApi
     NAME = 'contract'
   end
 
+  class ContractService < Entity
+    NAME = 'contract_service'
+  end
+
   class Resource < Entity
     NAME = 'resource'
   end
