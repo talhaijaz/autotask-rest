@@ -2,7 +2,7 @@ module AutotaskApi
   class Entity
 
     def self.all(client = AutotaskApi.client)
-      where(Condition.new(Expression.new('id', 'GreaterThan', 0)), client)
+      where(Condition.new(Expression.new('id', 'GreaterThanorEquals', 1)), client)
     end
 
     # @param conditions [Hash]
@@ -36,26 +36,26 @@ module AutotaskApi
   end
 
   class Account < Entity
-    NAME = 'account'
+    NAME = 'Account'
   end
 
   class AllocationCode < Entity
-    NAME = 'allocation_code'
+    NAME = 'AllocationCode'
   end
 
   class Contact < Entity
-    NAME = 'contact'
+    NAME = 'Contact'
   end
 
   class Contract < Entity
-    NAME = 'contract'
+    NAME = 'Contract'
   end
 
   class ContractService < Entity
-    NAME = 'contract_service'
+    NAME = 'ContractService'
   end
 
   class Resource < Entity
-    NAME = 'resource'
+    NAME = 'Resource'
   end
 end
