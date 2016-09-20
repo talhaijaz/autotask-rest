@@ -55,6 +55,10 @@ module AutotaskApi
     NAME = 'ContractService'
   end
 
+  class ContractServiceBundle < Entity
+    NAME = 'ContractServiceBundle'
+  end
+
   class Resource < Entity
     NAME = 'Resource'
   end
