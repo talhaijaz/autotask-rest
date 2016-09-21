@@ -70,4 +70,8 @@ module AutotaskApi
   class Task < Entity
     NAME = 'Task'
   end
+
+  class Ticket < Entity
+    NAME = 'Ticket'
+  end
 end
