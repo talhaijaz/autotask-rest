@@ -75,4 +75,8 @@ module AutotaskApi
   class Ticket < Entity
     NAME = 'Ticket'
   end
+
+  class TimeEntry < Entity
+    NAME = 'TimeEntry'
+  end
 end
