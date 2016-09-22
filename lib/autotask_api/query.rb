@@ -53,13 +53,16 @@ module AutotaskApi
     end
 
     def self.from_hash(condition = {})
-      expressions = condition[:expressions].map do |expression|
+      expressions = condition[:expressions].map do |exprnewession|
         expression.has_key?(:expressions) ? Condition.from_hash(expression) : Expression.from_hash(expression)
       end
 
       new expressions, condition[:operator] || 'AND'
     end
 
+    def remove_expression_by_field(field)
+      expressions.reject! { |expression| expression.try(:field) == field }
+    end
   end
 
   class Expression

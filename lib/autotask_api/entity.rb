@@ -14,7 +14,7 @@ module AutotaskApi
       results = clean_results response[:entity_results][:entity]
       results = [results] unless results.is_a?(Array)
 
-      EntityCollection.new(results, condition, client)
+      EntityCollection.new(self, results, condition, client)
     end
 
     def self.expression(value)

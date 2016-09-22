@@ -4,9 +4,10 @@ module AutotaskApi
 
     attr_accessor :condition
 
-    attr_reader :entities, :client
+    attr_reader :entities, :client, :class_name
 
-    def initialize(entities, condition, client = AutotaskApi.client)
+    def initialize(class_name, entities, condition, client = AutotaskApi.client)4
+      @class_name = class_name
       @entities = entities
       @condition = condition
       @client = client
@@ -21,12 +22,12 @@ module AutotaskApi
     end
 
     def next_page
-      new_expression = Expression.new('id', 'GreaterThan', entities.last.id)
-      new_condition = condition
+      new_expression = Expression.new('id', 'GreaterThan', entities.last[:id])
+      condition.remove_expression_by_field('id')
 
-      # TODO: find and replace the Expression inside new_condition related to the id field with new_expression
+      new_condition = Condition.new([condition, new_expression])
 
-      entities.first.class.where(new_condition, client)
+      class_name.where(new_condition, client)
     end
 
   end
