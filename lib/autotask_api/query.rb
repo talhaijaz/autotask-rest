@@ -61,7 +61,9 @@ module AutotaskApi
     end
 
     def remove_expression_by_field(field)
-      expressions.reject! { |expression| expression.try(:field) == field }
+      expressions.reject! do |expression|
+        expression.is_a?(Condition) ? expression.remove_expression_by_field(field) : expression.field == field
+      end
     end
   end
 
