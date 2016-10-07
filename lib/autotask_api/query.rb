@@ -65,6 +65,7 @@ module AutotaskApi
         expression.is_a?(Condition) ? expression.remove_expression_by_field(field) : expression.field == field
       end
     end
+    
   end
 
   class Expression

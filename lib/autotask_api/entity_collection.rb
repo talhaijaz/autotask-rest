@@ -23,9 +23,11 @@ module AutotaskApi
 
     def next_page
       new_expression = Expression.new('id', 'GreaterThan', entities.last[:id])
-      condition.remove_expression_by_field('id')
 
-      new_condition = Condition.new([condition, new_expression])
+      condition.remove_expression_by_field('id')
+      params = condition.expressions.empty? ? new_expression : [condition, new_expression]
+
+      new_condition = Condition.new(params)
 
       class_name.where(new_condition, client)
     end
