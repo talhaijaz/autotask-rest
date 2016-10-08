@@ -6,7 +6,7 @@ module AutotaskApi
 
     attr_reader :entities, :client, :class_name
 
-    def initialize(class_name, entities, condition, client = AutotaskApi.client)4
+    def initialize(class_name, entities, condition, client = AutotaskApi.client)
       @class_name = class_name
       @entities = entities
       @condition = condition
