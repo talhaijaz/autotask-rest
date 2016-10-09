@@ -1,8 +1,8 @@
 module AutotaskApi
   class Entity
 
-    def self.all(client = AutotaskApi.client)
-      where(Condition.new(Expression.new('id', 'GreaterThanorEquals', 1)), client)
+    def self.all(client = AutotaskApi.client, id = 1)
+      where(Condition.new(Expression.new('id', 'GreaterThanorEquals', id)), client)
     end
 
     # @param conditions [Hash]

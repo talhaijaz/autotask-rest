@@ -17,6 +17,10 @@ module AutotaskApi
       entities.each(&block)
     end
 
+    def last(&block)
+      entities.last(&block)
+    end
+
     def next_page?
       entities.size >= 500
     end
