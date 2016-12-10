@@ -44,6 +44,10 @@ module AutotaskApi
     NAME = 'AllocationCode'
   end
 
+  class BillingItem < Entity
+    NAME = 'BillingItem'
+  end
+
   class Contact < Entity
     NAME = 'Contact'
   end
