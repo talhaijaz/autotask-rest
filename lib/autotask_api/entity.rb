@@ -68,6 +68,10 @@ module AutotaskApi
     NAME = 'ExpenseItem'
   end
 
+  class Invoice < Entity
+    NAME = 'Invoice'
+  end
+
   class Product < Entity
     NAME = 'Product'
   end
