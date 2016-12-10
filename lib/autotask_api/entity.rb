@@ -64,6 +64,10 @@ module AutotaskApi
     NAME = 'Project'
   end
 
+  class QuoteItem < Entity
+    NAME = 'QuoteItem'
+  end
+
   class Resource < Entity
     NAME = 'Resource'
   end
