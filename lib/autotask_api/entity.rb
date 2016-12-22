@@ -36,6 +36,10 @@ module AutotaskApi
 
   end
 
+  class AccountLocation < Entity
+    NAME = 'AccountLocation'
+  end
+
   class Account < Entity
     NAME = 'Account'
   end
