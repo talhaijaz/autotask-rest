@@ -75,9 +75,13 @@ module AutotaskApi
   class ContractExclusionAllocationCode < Entity
     NAME = 'ContractExclusionAllocationCode'
   end
-  
+
   class ContractExclusionRole < Entity
     NAME = 'ContractExclusionRole'
+  end
+
+  class ContractFactor < Entity
+    NAME = 'ContractFactor'
   end
 
   class ContractService < Entity
