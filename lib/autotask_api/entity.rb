@@ -36,12 +36,16 @@ module AutotaskApi
 
   end
 
+  class Account < Entity
+    NAME = 'Account'
+  end
+
   class AccountLocation < Entity
     NAME = 'AccountLocation'
   end
 
-  class Account < Entity
-    NAME = 'Account'
+  class AccountTeam < Entity
+    NAME = 'AccountTeam'
   end
 
   class AllocationCode < Entity
