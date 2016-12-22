@@ -68,6 +68,10 @@ module AutotaskApi
     NAME = 'ContractBlock'
   end
 
+  class ContractCost < Entity
+    NAME = 'ContractCost'
+  end
+
   class ContractService < Entity
     NAME = 'ContractService'
   end
