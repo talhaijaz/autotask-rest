@@ -96,6 +96,10 @@ module AutotaskApi
     NAME = 'ContractRetainer'
   end
 
+  class ContractRoleCost < Entity
+    NAME = 'ContractRoleCost'
+  end
+
   class ContractService < Entity
     NAME = 'ContractService'
   end
