@@ -104,6 +104,10 @@ module AutotaskApi
     NAME = 'ContractService'
   end
 
+  class ContractServiceAdjustment < Entity
+    NAME = 'ContractServiceAdjustment'
+  end
+
   class ContractServiceBundle < Entity
     NAME = 'ContractServiceBundle'
   end
