@@ -30,7 +30,11 @@ module AutotaskApi
 
     # @param results [Array(Hash)]
     def self.clean_results(results)
-      results.each { |record| record.delete('@xsi:type'.to_sym) }
+      results.each do |record|
+        record.update(record){ |k,v| v == {:"@xsi:type"=>"xsd:string"} ? nil : v }
+          .delete('@xsi:type'.to_sym)
+      end
+
       return results
     end
 
