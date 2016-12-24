@@ -177,6 +177,10 @@ module AutotaskApi
     NAME = 'Opportunity'
   end
 
+  class PaymentTerm < Entity
+    NAME = 'PaymentTerm'
+  end
+
   class Product < Entity
     NAME = 'Product'
   end
