@@ -156,6 +156,10 @@ module AutotaskApi
     NAME = 'InstalledProductType'
   end
 
+  class InternalLocation < Entity
+    NAME = 'InternalLocation'
+  end
+
   class Invoice < Entity
     NAME = 'Invoice'
   end
