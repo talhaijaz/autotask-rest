@@ -8,7 +8,12 @@ module AutotaskApi
     # @param conditions [Hash]
     def self.where(condition, client = AutotaskApi.client)
       query = Query.new(self::NAME, condition, client)
-      response = query.fetch
+
+      begin
+        response = query.fetch
+      rescue RuntimeError
+        response = { entity_results: nil }
+      end
 
       return [] if response[:entity_results].nil?
       results = clean_results response[:entity_results][:entity]
