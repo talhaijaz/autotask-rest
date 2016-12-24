@@ -173,6 +173,10 @@ module AutotaskApi
     NAME = 'Invoice'
   end
 
+  class Opportunity < Entity
+    NAME = 'Opportunity'
+  end
+
   class Product < Entity
     NAME = 'Product'
   end
