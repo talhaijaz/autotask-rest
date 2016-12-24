@@ -124,6 +124,10 @@ module AutotaskApi
     NAME = 'ContractServiceUnit'
   end
 
+  class ContractTicketPurchase < Entity
+    NAME = 'ContractTicketPurchase'
+  end
+
   class Department < Entity
     NAME = 'Department'
   end
