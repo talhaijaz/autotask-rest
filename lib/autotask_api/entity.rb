@@ -132,6 +132,10 @@ module AutotaskApi
     NAME = 'ContractTicketPurchase'
   end
 
+  class Country < Entity
+    NAME = 'Country'
+  end
+
   class Department < Entity
     NAME = 'Department'
   end
