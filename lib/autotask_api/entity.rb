@@ -165,8 +165,8 @@ module AutotaskApi
     NAME = 'InternalLocation'
   end
 
-  class InventoryItem < Entity
-    NAME = 'InventoryItem'
+  class InventoryLocation < Entity
+    NAME = 'InventoryLocation'
   end
 
   class Invoice < Entity
