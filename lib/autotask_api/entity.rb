@@ -152,6 +152,10 @@ module AutotaskApi
     NAME = 'InstalledProduct'
   end
 
+  class InstalledProductType < Entity
+    NAME = 'InstalledProductType'
+  end
+
   class Invoice < Entity
     NAME = 'Invoice'
   end
