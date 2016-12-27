@@ -197,6 +197,10 @@ module AutotaskApi
     NAME = 'ProjectCost'
   end
 
+  class ProjectNote < Entity
+    NAME = 'ProjectNote'
+  end
+
   class QuoteItem < Entity
     NAME = 'QuoteItem'
   end
