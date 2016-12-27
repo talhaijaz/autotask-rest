@@ -201,6 +201,10 @@ module AutotaskApi
     NAME = 'ProjectNote'
   end
 
+  class PurchaseOrderItem < Entity
+    NAME = 'PurchaseOrderItem'
+  end
+
   class QuoteItem < Entity
     NAME = 'QuoteItem'
   end
