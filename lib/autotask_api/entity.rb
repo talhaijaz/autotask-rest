@@ -181,6 +181,10 @@ module AutotaskApi
     NAME = 'PaymentTerm'
   end
 
+  class Phase < Entity
+    NAME = 'Phase'
+  end
+
   class Product < Entity
     NAME = 'Product'
   end
