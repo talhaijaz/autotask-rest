@@ -205,6 +205,10 @@ module AutotaskApi
     NAME = 'PurchaseOrderItem'
   end
 
+  class Quote < Entity
+    NAME = 'Quote'
+  end
+
   class QuoteItem < Entity
     NAME = 'QuoteItem'
   end
