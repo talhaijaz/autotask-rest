@@ -237,6 +237,10 @@ module AutotaskApi
     NAME = 'SalesOrder'
   end
 
+  class Service < Entity
+    NAME = 'Service'
+  end
+
   class Task < Entity
     NAME = 'Task'
   end
