@@ -213,6 +213,10 @@ module AutotaskApi
     NAME = 'QuoteItem'
   end
 
+  class QuoteLocation < Entity
+    NAME = 'QuoteLocation'
+  end
+
   class Resource < Entity
     NAME = 'Resource'
   end
