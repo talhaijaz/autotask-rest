@@ -221,6 +221,10 @@ module AutotaskApi
     NAME = 'Resource'
   end
 
+  class ResourceRole < Entity
+    NAME = 'ResourceRole'
+  end
+
   class Role < Entity
     NAME = 'Role'
   end
