@@ -245,6 +245,10 @@ module AutotaskApi
     NAME = 'ServiceBundle'
   end
 
+  class ServiceBundleService < Entity
+    NAME = 'ServiceBundleService'
+  end
+
   class Task < Entity
     NAME = 'Task'
   end
