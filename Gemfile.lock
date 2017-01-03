@@ -18,11 +18,9 @@ GEM
       rack
       socksify
     mini_portile2 (2.1.0)
-    nokogiri (1.6.8)
+    nokogiri (1.7.0)
       mini_portile2 (~> 2.1.0)
-      pkg-config (~> 1.1.7)
     nori (2.6.0)
-    pkg-config (1.1.7)
     rack (2.0.1)
     savon (2.11.1)
       akami (~> 1.2)
@@ -44,4 +42,4 @@ DEPENDENCIES
   autotask_api!
 
 BUNDLED WITH
-   1.12.5
+   1.13.7
