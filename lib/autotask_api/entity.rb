@@ -257,6 +257,10 @@ module AutotaskApi
     NAME = 'ServiceCallTask'
   end
 
+  class ServiceCallTaskResource < Entity
+    NAME = 'ServiceCallTaskResource'
+  end
+
   class Task < Entity
     NAME = 'Task'
   end
