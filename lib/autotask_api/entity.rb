@@ -261,6 +261,10 @@ module AutotaskApi
     NAME = 'ServiceCallTaskResource'
   end
 
+  class ServiceCallTicket < Entity
+    NAME = 'ServiceCallTicket'
+  end
+
   class Task < Entity
     NAME = 'Task'
   end
