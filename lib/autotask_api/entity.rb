@@ -277,6 +277,10 @@ module AutotaskApi
     NAME = 'Task'
   end
 
+  class TaskPredecessor < Entity
+    NAME = 'TaskPredecessor'
+  end
+
   class Ticket < Entity
     NAME = 'Ticket'
   end
