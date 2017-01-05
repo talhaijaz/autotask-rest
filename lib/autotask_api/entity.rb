@@ -289,6 +289,10 @@ module AutotaskApi
     NAME = 'Tax'
   end
 
+  class TaxCategory < Entity
+    NAME = 'TaxCategory'
+  end
+
   class Ticket < Entity
     NAME = 'Ticket'
   end
