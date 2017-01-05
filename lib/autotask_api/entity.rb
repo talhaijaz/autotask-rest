@@ -285,6 +285,10 @@ module AutotaskApi
     NAME = 'TaskSecondaryResource'
   end
 
+  class Tax < Entity
+    NAME = 'Tax'
+  end
+
   class Ticket < Entity
     NAME = 'Ticket'
   end
