@@ -309,6 +309,10 @@ module AutotaskApi
     NAME = 'TicketCost'
   end
 
+  class TicketSecondaryResource < Entity
+    NAME = 'TicketSecondaryResource'
+  end
+
   class TimeEntry < Entity
     NAME = 'TimeEntry'
   end
