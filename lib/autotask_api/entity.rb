@@ -165,6 +165,10 @@ module AutotaskApi
     NAME = 'InternalLocation'
   end
 
+  class InventoryItem < Entity
+    NAME = 'InventoryItem'
+  end
+
   class InventoryLocation < Entity
     NAME = 'InventoryLocation'
   end
@@ -299,6 +303,10 @@ module AutotaskApi
 
   class Ticket < Entity
     NAME = 'Ticket'
+  end
+
+  class TicketCost < Entity
+    NAME = 'TicketCost'
   end
 
   class TimeEntry < Entity
