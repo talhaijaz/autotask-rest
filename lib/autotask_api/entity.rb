@@ -16,8 +16,9 @@ module AutotaskApi
       end
 
       return [] if response[:entity_results].nil?
-      results = clean_results response[:entity_results][:entity]
+      results = response[:entity_results][:entity]
       results = [results] unless results.is_a?(Array)
+      results = clean_results(results)
 
       EntityCollection.new(self, results, condition, client)
     end
