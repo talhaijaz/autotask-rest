@@ -15,7 +15,9 @@ module AutotaskApi
         raise Error.new(e.message)
       end
 
-      return [] if response[:entity_results].nil?
+      # return empty collection if there were no results
+      return EntityCollection.new(self, [], condition, client) if response[:entity_results].nil?
+
       results = response[:entity_results][:entity]
       results = [results] unless results.is_a?(Array)
       results = clean_results(results)
@@ -25,19 +27,19 @@ module AutotaskApi
 
     def self.expression(value)
       case value.class
-        when TrueClass
-          1
-        when FalseClass
-          0
-        else
-          value
+      when TrueClass
+        1
+      when FalseClass
+        0
+      else
+        value
       end
     end
 
     # @param results [Array(Hash)]
     def self.clean_results(results)
       results.each do |record|
-        record.update(record){ |k,v| v == {:"@xsi:type"=>"xsd:string"} ? nil : v }
+        record.update(record) { |_k, v| v == { :"@xsi:type" => "xsd:string" } ? nil : v }
           .delete('@xsi:type'.to_sym)
       end
 

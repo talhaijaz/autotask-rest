@@ -37,5 +37,9 @@ module AutotaskApi
 
       class_name.where(new_condition, client)
     end
+
+    def empty?
+      entities.empty?
+    end
   end
 end
