@@ -16,6 +16,6 @@ Gem::Specification.new do |s|
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
 
-  s.add_dependency 'nokogiri'
-  s.add_dependency 'savon'
+  s.add_dependency 'nokogiri', '>= 1', '< 2'
+  s.add_dependency 'savon', '>= 2', '< 3'
 end

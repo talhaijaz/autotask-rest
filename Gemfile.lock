@@ -1,9 +1,9 @@
 PATH
   remote: .
   specs:
-    autotask_api (0.2.0)
-      nokogiri
-      savon
+    autotask_api (0.3.0)
+      nokogiri (>= 1, < 2)
+      savon (>= 2, < 3)
 
 GEM
   remote: https://rubygems.org/
