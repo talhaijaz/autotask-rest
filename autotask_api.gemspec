@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.name        = 'autotask_api'
   s.version     = AutotaskApi::VERSION
   s.authors     = ['Kevin Pheasey']
-  s.email       = ['kevin@kpheasey.com']
+  s.email       = ['kevin@kpsoftware.io']
   s.homepage    = 'https://github.com/MSPCFO/autotask_api'
   s.summary     = 'Autotask API wrapper'
   s.description = 'Abstracted Autotask API 1.5 wrapper'
