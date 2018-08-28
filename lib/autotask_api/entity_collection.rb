@@ -2,6 +2,8 @@ module AutotaskApi
   class EntityCollection
     include Enumerable
 
+    PAGE_SIZE = 500
+
     attr_accessor :condition
 
     attr_reader :entities, :client, :class_name
@@ -22,7 +24,7 @@ module AutotaskApi
     end
 
     def next_page?
-      entities.size >= 500
+      entities.size >= PAGE_SIZE
     end
 
     def next_page
@@ -34,6 +36,10 @@ module AutotaskApi
       new_condition = Condition.new(params)
 
       class_name.where(new_condition, client)
+    end
+
+    def fetch
+      entities
     end
 
   end
