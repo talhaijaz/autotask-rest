@@ -9,5 +9,14 @@ require 'autotask_api/entity'
 require 'autotask_api/entity_collection'
 
 module AutotaskApi
+  class Error < StandardError
+    def initialize(msg)
+      # extract SOAP Exception message if present
+      if msg.include?('[SoapException:')
+        msg = msg[/\[SoapException:(.*?)\]/, 1]&.strip
+      end
 
+      super(msg)
+    end
+  end
 end

@@ -11,8 +11,8 @@ module AutotaskApi
 
       begin
         response = query.fetch
-      rescue RuntimeError
-        response = { entity_results: nil }
+      rescue RuntimeError => e
+        raise Error.new(e.message)
       end
 
       return [] if response[:entity_results].nil?
