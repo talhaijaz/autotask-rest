@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    autotask_api (0.3.0)
+    autotask_api (0.3.1)
       nokogiri (>= 1, < 2)
       savon (>= 2, < 3)
 
