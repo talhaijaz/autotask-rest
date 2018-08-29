@@ -53,7 +53,7 @@ module AutotaskApi
     end
 
     def self.from_hash(condition = {})
-      expressions = condition[:expressions].map do |exprnewession|
+      expressions = condition[:expressions].map do |expression|
         expression.has_key?(:expressions) ? Condition.from_hash(expression) : Expression.from_hash(expression)
       end
 
