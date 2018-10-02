@@ -23,6 +23,8 @@ $ gem install autotask_api
 
 ## Query
 
+See the "Query XML elements and attributes" section of the [Autotask API Users Guide](https://ww4.autotask.net/help/Content/LinkedDOCUMENTS/WSAPI/T_WebServicesAPIv1_5.pdf) for more information.
+
 ### Simple field test
 
 SQL:
