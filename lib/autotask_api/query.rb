@@ -23,14 +23,16 @@ module AutotaskApi
     def query_string
       Nokogiri::XML::Builder.new do
         sXML do
-          cdata(Nokogiri::XML::Builder.new do |xml|
-            xml.queryxml do
-              xml.entity entity
-              xml.query do
-                condition.to_xml(xml)
+          cdata(
+            Nokogiri::XML::Builder.new do |xml|
+              xml.queryxml do
+                xml.entity entity
+                xml.query do
+                  condition.to_xml(xml)
+                end
               end
-            end
-          end.doc.root)
+            end.doc.root
+          )
         end
       end.doc.root.to_s
     end
@@ -47,7 +49,7 @@ module AutotaskApi
     end
 
     def to_xml(xml)
-      xml.condition operator: operator do
+      xml.condition do
         expressions.each { |expression| expression.to_xml(xml) }
       end
     end
@@ -65,7 +67,7 @@ module AutotaskApi
         expression.is_a?(Condition) ? expression.remove_expression_by_field(field) : expression.field == field
       end
     end
-    
+
   end
 
   class Expression

@@ -9,8 +9,7 @@ module AutotaskApi
   end
 
   class Client
-
-    NAMESPACE = 'http://autotask.net/ATWS/v1_5/'
+    NAMESPACE = 'http://autotask.net/ATWS/v1_6/'
 
     attr_reader :config
 
@@ -21,17 +20,33 @@ module AutotaskApi
 
     def savon_client
       @savon_client ||= Savon.client(
-          wsdl: config.wsdl,
-          logger: Rails.logger,
-          log_level: :debug,
-          log: config.debug,
-          basic_auth: [config.username, config.password]
+        wsdl: config.wsdl,
+        logger: Rails.logger,
+        log_level: :debug,
+        log: config.debug,
+        basic_auth: [config.username, config.password],
+        soap_header: soap_header
       )
     end
 
     def call(operation, message = {})
-      savon_client.call(operation, message: message, attributes: { xmlns: NAMESPACE })
+      savon_client.call(
+        operation,
+        message: message,
+        attributes: { xmlns: NAMESPACE }
+      )
     end
 
+    def soap_header
+      return nil unless config.integration_code
+
+      xml = Nokogiri::XML::Builder.new do |xml|
+        xml.AutotaskIntegrations xmlns: NAMESPACE do
+          xml.IntegrationCode config.integration_code
+        end
+      end
+
+      xml.doc.root.to_s
+    end
   end
 end
