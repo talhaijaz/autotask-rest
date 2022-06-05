@@ -13,10 +13,10 @@ module AutotaskApi
   end
 
   class Configuration
-    attr_accessor :wsdl, :username, :password, :read_timeout, :open_timeout, :debug, :integration_code
+    attr_accessor :url, :username, :password, :read_timeout, :open_timeout, :debug, :integration_code
 
     def initialize
-      @wsdl = 'https://webservices.autotask.net/atservices/1.6/atws.wsdl'
+      @url = 'https://webservices2.autotask.net/atservicesrest/v1.0'
       @read_timeout = 30
       @open_timeout = 30
       @debug = false

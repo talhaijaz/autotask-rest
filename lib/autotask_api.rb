@@ -1,5 +1,4 @@
 require 'nokogiri'
-require 'savon'
 
 require 'autotask_api/version'
 require 'autotask_api/config'

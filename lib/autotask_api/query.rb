@@ -9,9 +9,9 @@ module AutotaskApi
     end
 
     def fetch
-      response = client.call :query, query_string
-
-      result = response.body[:query_response][:query_result]
+      response = client.call entity, condition
+      byebug  
+      result = response.body
 
       if result[:return_code].to_i == -1
         raise result[:errors][:atws_error][:message]
