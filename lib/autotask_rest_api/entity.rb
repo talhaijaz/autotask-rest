@@ -1,12 +1,12 @@
-module AutotaskApi
+module AutotaskRestApi
   class Entity
 
-    def self.all(client = AutotaskApi.client, id = 1)
+    def self.all(client = AutotaskRestApi.client, id = 1)
       where(Condition.new(Expression.new('id', 'GreaterThanorEquals', id)), client)
     end
 
     # @param conditions [Hash]
-    def self.where(condition, client = AutotaskApi.client)
+    def self.where(condition, client = AutotaskRestApi.client)
       query = Query.new(self::NAME, condition, client)
 
       begin

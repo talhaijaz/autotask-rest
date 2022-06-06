@@ -1,6 +1,6 @@
 require 'rest-client'
 
-module AutotaskApi
+module AutotaskRestApi
 
   class << self
     attr_accessor :client
@@ -16,7 +16,7 @@ module AutotaskApi
     attr_reader :config
 
     def initialize
-      @config = AutotaskApi.config
+      @config = AutotaskRestApi.config
       yield @config if block_given?
     end
 
@@ -26,7 +26,7 @@ module AutotaskApi
 
     def call(operation, message = {})
       url = config.url + "/#{operation}/query"
-      res = RestClient.get(url, headers=default_headers.merge!(params: { search: message.to_json }))
+      RestClient.get(url, headers=default_headers.merge!(params: { search: message.to_json }))
     end
   end
 end
