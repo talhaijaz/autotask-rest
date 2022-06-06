@@ -10,14 +10,7 @@ module AutotaskApi
 
     def fetch
       response = client.call entity, condition
-      byebug  
-      result = response.body
-
-      if result[:return_code].to_i == -1
-        raise result[:errors][:atws_error][:message]
-      else
-        return result
-      end
+      response.body
     end
 
     def query_string

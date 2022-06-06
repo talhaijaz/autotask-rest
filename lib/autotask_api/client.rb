@@ -26,7 +26,7 @@ module AutotaskApi
 
     def call(operation, message = {})
       url = config.url + "/#{operation}/query"
-      RestClient.get(url, headers=default_headers.merge!(params: { search: message.to_json }))
+      res = RestClient.get(url, headers=default_headers.merge!(params: { search: message.to_json }))
     end
   end
 end
