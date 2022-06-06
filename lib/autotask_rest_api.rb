@@ -1,13 +1,13 @@
 require 'nokogiri'
 
-require 'autotask_api/version'
-require 'autotask_api/config'
-require 'autotask_api/client'
-require 'autotask_api/query'
-require 'autotask_api/entity'
-require 'autotask_api/entity_collection'
+require 'autotask_rest_api/version'
+require 'autotask_rest_api/config'
+require 'autotask_rest_api/client'
+require 'autotask_rest_api/query'
+require 'autotask_rest_api/entity'
+require 'autotask_rest_api/entity_collection'
 
-module AutotaskApi
+module AutotaskRestApi
   class Error < StandardError
     def initialize(msg)
       # extract SOAP Exception message if present

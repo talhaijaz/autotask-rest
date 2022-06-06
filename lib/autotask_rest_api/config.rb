@@ -1,4 +1,4 @@
-module AutotaskApi
+module AutotaskRestApi
 
   class << self
     attr_accessor :config
