@@ -11,8 +11,6 @@ module AutotaskRestApi
   end
 
   class Client
-    NAMESPACE = 'http://autotask.net/ATWS/v1_6/'
-
     attr_reader :config
 
     def initialize

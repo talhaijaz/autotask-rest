@@ -1,51 +1,51 @@
 module AutotaskRestApi
   class Entity
-
-    def self.all(client = AutotaskRestApi.client, id = 1)
-      where(Condition.new(Expression.new('id', 'GreaterThanorEquals', id)), client)
-    end
-
-    # @param conditions [Hash]
-    def self.where(condition, client = AutotaskRestApi.client)
-      query = Query.new(self::NAME, condition, client)
-
-      begin
-        response = query.fetch
-      rescue RuntimeError => e
-        raise Error.new(e.message)
+    class << self
+      def all(client = AutotaskRestApi.client, id = 1)
+        where(Condition.new(Expression.new('id', 'GreaterThanorEquals', id)), client)
       end
 
-      # return empty collection if there were no results
-      return EntityCollection.new(self, [], condition, client) if response[:entity_results].nil?
+      # @param conditions [Hash]
+      def where(condition, client = AutotaskRestApi.client)
+        query = Query.new(self::NAME, condition, client)
 
-      results = response[:entity_results][:entity]
-      results = [results] unless results.is_a?(Array)
-      results = clean_results(results)
+        begin
+          response = query.fetch
+        rescue RuntimeError => e
+          raise Error.new(e.message)
+        end
 
-      EntityCollection.new(self, results, condition, client)
-    end
+        # return empty collection if there were no results
+        return EntityCollection.new(self, [], condition, client) if response[:entity_results].nil?
 
-    def self.expression(value)
-      case value.class
-      when TrueClass
-        1
-      when FalseClass
-        0
-      else
-        value
-      end
-    end
+        results = response[:entity_results][:entity]
+        results = [results] unless results.is_a?(Array)
+        results = clean_results(results)
 
-    # @param results [Array(Hash)]
-    def self.clean_results(results)
-      results.each do |record|
-        record.update(record) { |_k, v| v == { :"@xsi:type" => "xsd:string" } ? nil : v }
-          .delete('@xsi:type'.to_sym)
+        EntityCollection.new(self, results, condition, client)
       end
 
-      return results
-    end
+      def expression(value)
+        case value.class
+        when TrueClass
+          1
+        when FalseClass
+          0
+        else
+          value
+        end
+      end
 
+      # @param results [Array(Hash)]
+      def clean_results(results)
+        results.each do |record|
+          record.update(record) { |_k, v| v == { :"@xsi:type" => "xsd:string" } ? nil : v }
+            .delete('@xsi:type'.to_sym)
+        end
+
+        return results
+      end
+    end
   end
 
   class Account < Entity

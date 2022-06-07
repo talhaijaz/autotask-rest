@@ -10,9 +10,9 @@ require 'autotask_rest_api/entity_collection'
 module AutotaskRestApi
   class Error < StandardError
     def initialize(msg)
-      # extract SOAP Exception message if present
-      if msg.include?('[SoapException:')
-        msg = msg[/\[SoapException:(.*?)\]/, 1]&.strip
+      # extract Rest Exception message if present
+      if msg.include?('[RestException:')
+        msg = msg[/\[RestException:(.*?)\]/, 1]&.strip
       end
 
       super(msg)
