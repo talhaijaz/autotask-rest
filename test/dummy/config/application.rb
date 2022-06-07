@@ -3,7 +3,7 @@ require_relative 'boot'
 require 'rails/all'
 
 Bundler.require(*Rails.groups)
-require "autotask_api"
+require "autotask_rest_api"
 
 module Dummy
   class Application < Rails::Application

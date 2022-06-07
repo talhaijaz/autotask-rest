@@ -1,4 +1,4 @@
-module AutotaskApi
+module AutotaskRestApi
   class EntityCollection
     include Enumerable
 
@@ -8,7 +8,7 @@ module AutotaskApi
 
     attr_reader :entities, :client, :class_name
 
-    def initialize(class_name, entities, condition, client = AutotaskApi.client)
+    def initialize(class_name, entities, condition, client = AutotaskRestApi.client)
       @class_name = class_name
       @entities = entities
       @condition = condition

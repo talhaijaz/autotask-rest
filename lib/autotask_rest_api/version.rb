@@ -1,3 +1,3 @@
-module AutotaskApi
+module AutotaskRestApi
   VERSION = '1.0.0'
 end
