@@ -1,5 +1,5 @@
 module AutotaskRestApi
-    class DMQuery
+    class DMQuery #Data manipulation query
       attr_accessor :entity, :client, :body
   
       def initialize(entity, body, client = AutotaskRestApi.client)
