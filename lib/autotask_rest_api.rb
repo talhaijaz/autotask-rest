@@ -4,6 +4,7 @@ require 'autotask_rest_api/version'
 require 'autotask_rest_api/config'
 require 'autotask_rest_api/client'
 require 'autotask_rest_api/query'
+require 'autotask_rest_api/dm_query'
 require 'autotask_rest_api/entity'
 require 'autotask_rest_api/entity_collection'
 

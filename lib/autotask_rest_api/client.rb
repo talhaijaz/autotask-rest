@@ -22,9 +22,14 @@ module AutotaskRestApi
       { ApiIntegrationCode: config.integration_code, UserName: config.username,  Secret: config.password }
     end
 
-    def call(operation, message = {})
-      url = config.url + "/#{operation}/query"
-      RestClient.get(url, headers=default_headers.merge!(params: { search: message.to_json }))
+    def get_data(entity, conditions = {})
+      url = config.url + "/#{entity}/query"
+      RestClient.get(url, headers=default_headers.merge!(params: { search: conditions.to_json }))
+    end
+
+    def post_data(entity, body = {})
+      url = config.url + "/#{entity}"
+      RestClient.post(url, body, headers=default_headers)
     end
   end
 end
