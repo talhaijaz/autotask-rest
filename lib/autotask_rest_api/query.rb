@@ -9,7 +9,7 @@ module AutotaskRestApi
     end
 
     def fetch
-      response = client.call entity, condition
+      response = client.get_data entity, condition
       JSON(response.body)
     end
   end
