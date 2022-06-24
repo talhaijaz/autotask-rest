@@ -10,7 +10,12 @@ module AutotaskRestApi
   
       def fetch
         response = client.post_data entity, body
-        JSON(response.body)
+     
+        if response.code == 200
+          "#{entity} Created Successfully!"
+        else
+          JSON(response.body)
+        end
       end
     end
   end
