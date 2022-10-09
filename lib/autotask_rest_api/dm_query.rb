@@ -23,8 +23,8 @@ module AutotaskRestApi
                       JSON(response.body)
                   else
                      "#{entity} Created Successfully!"
-                   end
-                 elsif response.code == 500 || response.code == 404
+                  end
+                 elsif response.code == 500 || response.code == 404 || response.code == 401
                    response.body
                  else
                    JSON(response.body)
