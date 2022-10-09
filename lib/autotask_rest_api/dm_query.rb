@@ -2,7 +2,7 @@ module AutotaskRestApi
   
   # Data manipulation query
   class DMQuery 
-    attr_accessor :entity, :client, :body, :request_type
+    attr_accessor :entity, :client, :condition, :request_type
 
     def initialize(entity, condition, client = AutotaskRestApi.client, request_type)
       @entity = entity

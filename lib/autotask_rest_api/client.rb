@@ -27,15 +27,6 @@ module AutotaskRestApi
       RestClient.get(url, default_headers.merge!(params: { search: conditions.to_json }))
     end
 
-    def post_data(entity, body = {})
-      url = config.url + "/#{entity}"
-      begin
-        RestClient.post(url, body, default_headers)
-      rescue StandardError => e
-        handle_exception(e)
-      end
-    end
-
     def patch_data(entity, body = {})
       url = if entity == 'ContractServices'
               config.url + "/Contracts/#{body['contractID']}/Services"
@@ -44,6 +35,15 @@ module AutotaskRestApi
             end
       begin
         RestClient.patch(url, body.except('contractID'), default_headers)
+      rescue StandardError => e
+        handle_exception(e)
+      end
+    end
+
+    def post_data(entity, body = {})
+      url = config.url + "/#{entity}"
+      begin
+        RestClient.post(url, body, default_headers)
       rescue StandardError => e
         handle_exception(e)
       end
