@@ -53,6 +53,8 @@ module AutotaskRestApi
       if exception.http_code == 404
         OpenStruct.new({ code: exception.http_code,
                          body: 'The resource you are looking for might have been removed or had its name changed or is temporarily unavailable.' })
+      elsif exception.http_code == 401
+        OpenStruct.new({ code: exception.http_code, body: exception.message})
       else
         OpenStruct.new({ code: exception.http_code, body: JSON(exception.http_body)['errors'].first })
       end
