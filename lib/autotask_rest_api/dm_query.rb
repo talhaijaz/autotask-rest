@@ -1,29 +1,33 @@
 module AutotaskRestApi
-  class DMQuery # Data manipulation query
-    attr_accessor :entity, :client, :body, :request_type
+  
+  # Data manipulation query
+  class DMQuery 
+    attr_accessor :entity, :client, :condition, :request_type
 
-    def initialize(entity, body, client = AutotaskRestApi.client, request_type)
+    def initialize(entity, condition, client = AutotaskRestApi.client, request_type)
       @entity = entity
       @client = client
-      @body = body
+      @condition = condition
       @request_type = request_type
     end
 
-    def fetch
-      response = if request_type == 'patch'
-                   client.patch_data entity, body
+    def call_autotask
+      response = if request_type == 'get'
+                   client.get_data entity, condition
+                 elsif request_type == 'patch'
+                   client.patch_data entity, condition
                  else
-                   client.post_data entity, body
+                   client.post_data entity, condition
                  end
 
       res_body = if response.code == 200
-                  if request_type == 'patch'
-                     "#{entity} Updated Successfully!"
-                  elsif request_type == 'get'
+                    if request_type == 'get'
                       JSON(response.body)
-                  else
-                     "#{entity} Created Successfully!"
-                  end
+                    elsif request_type == 'patch'
+                      "#{entity} Updated Successfully!"
+                    else
+                      "#{entity} Created Successfully!"
+                    end
                  elsif response.code == 500 || response.code == 404 || response.code == 401
                    response.body
                  else
