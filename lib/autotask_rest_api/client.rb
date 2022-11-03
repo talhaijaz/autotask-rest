@@ -28,11 +28,11 @@ module AutotaskRestApi
     end
 
     def patch_data(entity, body = {})
-      url = if entity == 'ContractServices'
-              config.url + "/Contracts/#{body['contractID']}/Services"
-            else
-              config.url + "/#{entity}"
-            end
+      if entity == 'ContractServices' || entity == 'ContractCharges'
+        return invalid_contract_id unless body['contractID']
+      end
+      url = compose_url(entity, body)
+
       begin
         RestClient.patch(url, body.except('contractID'), default_headers)
       rescue StandardError => e
@@ -41,7 +41,11 @@ module AutotaskRestApi
     end
 
     def post_data(entity, body = {})
-      url = config.url + "/#{entity}"
+      if entity == 'ContractServices' || entity == 'ContractCharges'
+        return invalid_contract_id unless body['contractID']
+      end
+      url = compose_url(entity, body) 
+
       begin
         RestClient.post(url, body, default_headers)
       rescue StandardError => e
@@ -57,6 +61,22 @@ module AutotaskRestApi
         OpenStruct.new({ code: exception.http_code, body: exception.message})
       else
         OpenStruct.new({ code: exception.http_code, body: JSON(exception.http_body)['errors'].first })
+      end
+    end
+
+    def invalid_contract_id
+      OpenStruct.new({ code: 500,
+        body: 'ContractID not present' })
+    end
+
+    def compose_url(entity, body)
+      case entity
+      when 'ContractServices'
+        config.url + "/Contracts/#{body['contractID']}/Services"
+      when 'ContractCharges'
+        config.url + "/Contracts/#{body['contractID']}/Charges"
+      else
+        config.url + "/#{entity}"
       end
     end
   end
